@@ -1,5 +1,7 @@
 ﻿# Fetch Assignment Instructions
 
+Please Note: This will be running on PORT 8000
+
 1) Download the file by clicking the green coding button and selecting "Download ZIP"
 ![image](https://github.com/BrookeKanonik/assignment-fetch/assets/117051601/fffc22ce-b534-4e2f-8e5c-dbe7c45db016)
 
