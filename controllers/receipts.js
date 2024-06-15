@@ -47,7 +47,18 @@ const pointsLength = itemsList =>{
 }
 
 module.exports =  {
-   
+    
+    postId: async (req,res) => {
+        try{
+            let receiptItem = await req.body
+            id = uuidv4() //generates an id
+            storingData[id] = receiptItem
+            res.json({'id' : id})
+        }catch(err){
+            console.log(err)
+        }
+    },
+
     getPoints: async(req, res) => {
         try{
             let message =  await storingData[req.params.id]
@@ -55,17 +66,6 @@ module.exports =  {
             total += pointsLetters(message.retailer) + pointsTotal(message.total) + pointsTotalItems(message.items) + pointsDateOdd(message.purchaseDate) +pointsTimeOfPurch(message.purchaseTime) + pointsLength(message.items)
             //console.log('pointsLetters ' + pointsLetters(message.retailer) + 'pointsTotal ' + pointsTotal(message.total) + 'pointsTotalItems ' + pointsTotalItems(message.items) + 'pointsOddDate ' + pointsDateOdd(message.purchaseDate) + 'time ' + +pointsTimeOfPurch(message.purchaseTime) + 'length ' + pointsLength(message.items))
             return res.json({'points' : total});   
-        }catch(err){
-            console.log(err)
-        }
-    },
-
-    postId: async (req,res) => {
-        try{
-            let receiptItem = await req.body
-            id = uuidv4() //generates an id
-            storingData[id] = receiptItem
-            res.json({'id' : id})
         }catch(err){
             console.log(err)
         }
